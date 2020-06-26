@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 /**
  * UserHelper - basic class which provide low and high levels methods, constants and variables
- * @author vch
  */
 public class UserHepler extends Helper {
 

@@ -18,6 +18,12 @@ public class Helper {
 	//positions of items and default sets
 	protected int startPos = EMPTY, targetPos = EMPTY, currentPos = EMPTY, direction = EMPTY, maxFloorCount = EMPTY;
 	
+	/**
+	 * Get Rand Number - mthod which return random number from "min" to "max" arguments
+	 * @param min int
+	 * @param max int
+	 * @return int
+	 */
 	public static int getRandNumber(int min, int max) {
 		int r = (int)((Math.random() * max)); 
 		return (r > min) ? r : r + min;

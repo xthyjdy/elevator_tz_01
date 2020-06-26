@@ -1,5 +1,5 @@
 package classes;
-//System.out.println();
+
 public class User extends Helper {
 	//min and max values for IMPUDENCE, should be created at the start of script
 	private final int MIN_IMPUDENCE = 0, MAX_IMPUDENCE = 10;
@@ -80,23 +80,3 @@ public class User extends Helper {
 		counter++;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

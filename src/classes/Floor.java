@@ -1,12 +1,12 @@
 package classes;
 
 import java.util.ArrayList;
-//System.out.println();
+
 public class Floor extends UserHepler {
 	//min and max values for users should be created at the start of script
 	private final int MIN_USERS_COUNT = 0, MAX_USERS_COUNT = 10;
 	//quantity of users which should be created at the start of script  
-	private final int USERS_COUNT = 1;//getRandNumber(MIN_USERS_COUNT, MAX_USERS_COUNT);//!!!!!!!!!!!!!!!
+	private final int USERS_COUNT = 3;//getRandNumber(MIN_USERS_COUNT, MAX_USERS_COUNT);//!!!!!!!!!!!!!!!
 	//name(number) of floor 
 	private int floorName;
 	
@@ -51,13 +51,3 @@ public class Floor extends UserHepler {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-

@@ -1,8 +1,5 @@
 package classes;
 
-import javax.swing.border.EmptyBorder;
-
-//System.out.println();
 public class Engine {
 	//instance of Lift.class
 	private Lift lift;
@@ -43,7 +40,7 @@ public class Engine {
 			liftDelay();
 		}
 		//show main log
-//		lift.showLog();
+		//lift.showLog();
 	}
 	
 	/**

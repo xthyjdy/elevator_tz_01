@@ -1,8 +1,7 @@
 package classes;
 
 import java.util.ArrayList;
-//System.out.println();
-//for (int i = 0, len =  - 1; i <= len; i++) {}
+
 public class Lift extends UserHepler {
 	//min and max start values for floors which should be created at the start of script 
 	private final int MIN_FLOOR_COUNT = FIVE, MAX_FLOOR_COUNT = TWENTY;
@@ -36,58 +35,6 @@ public class Lift extends UserHepler {
 	}
 	
 	/**
-	 * Show Log - method which show log
-	 */
-	public void showLog() {
-		System.out.println("-------------MAIN LOG----------------");
-		for (String l : log) {
-			System.out.println(l);
-		}
-		System.out.println("-------------LOG END-----------------");
-	}
-	
-	/**
-	 * Write To Log - method which save log
-	 */
-	public void writeToLog() {
-		char border = '|';
-		char userSeparator = ';';
-		char direct = (MOVE_UP == direction) ? '^' : 'v';
-		StringBuffer b = new StringBuffer();		
-		String lb = System.lineSeparator();
-		String liftPos = "______floor_" + currentPos + "______";
-		String endOfLiftPos = "____________________";
-		String liftUsersCount = String.valueOf("lift users count - " + users.size() + " ");
-		ArrayList<Floor> floors = getFloors();
-		int floorCount = floors.size();
-		
-		//start building log display
-		b.append(liftPos + lb);
-		
-		for (int i = floorCount - 1; i >= 1; i--) {
-			ArrayList<User> users = floors.get(i).getUsers();
-			String item = "";
-			String floorName = "f-" + i;
-			
-			b.append(floorName);
-			b.append(border);
-			b.append(direct);
-			b.append(border);
-			for (int j = 0; j <= users.size() - 1; j++) {
-				item += users.get(j).getTargetPosition() + "; ";
-				b.append(item);
-			}
-			b.append(lb);
-		}
-		//end of log building
-		
-		//add screenshot to main log file
-		log.add(b.toString());
-		//display log
-		System.out.println(b.toString());
-	}
-	
-	/**
 	 * Check Queue - method which regulates transfer people from floor to lift and back
 	 */
 	public void checkQueue() {
@@ -107,8 +54,7 @@ public class Lift extends UserHepler {
 				User user = users.get(i);
 				//if this floor is user targetPos - throw out him from the lift
 				if (user.targetPos == currentPos) {
-					//System.out.println("equal - " + user + "; pos - " +  user.getTargetPosition());
-//					//define users list which should be removed from lift
+					//define users list which should be removed from lift
 					removeUsersFromLift.add(user);
 					//set new targetPos to user
 					user.resetPosition();
@@ -145,17 +91,7 @@ public class Lift extends UserHepler {
 			if (EMPTY != removeUsersFromFloor.size()) {
 				currentFloor.removeUsers(removeUsersFromFloor);
 			}
-//			for (int i = 0; i <= users.size() - 1; i++) {
-//				System.out.println(users.get(i).name + ";  pos - " + users.get(i).getTargetPosition());
-//			}
-//			System.out.println("floor user - " + currentFloor.getUsers().size());
 		}
-		
-//		for (User user : users) {
-//			System.out.println("user target positin - " + user.getTargetPosition());
-//		}
-		
-//		System.out.println("___________________________________");
 	}
 	
 	/**
@@ -163,12 +99,10 @@ public class Lift extends UserHepler {
 	 */
 	public void goToNextFloor() {
 		if (MOVE_UP == direction && currentPos == FLOOR_COUNT - 1) {
-//			System.out.println("changed direction to MOVE_DOWN");
 			direction = MOVE_DOWN;
 		}
 		
 		if (MOVE_DOWN == direction && currentPos == ONE) {
-//			System.out.println("changed direction to MOVE_UP");
 			direction = MOVE_UP;
 		}
 		
@@ -274,13 +208,54 @@ public class Lift extends UserHepler {
 			}
 		}
 	}
+	
+	/**
+	 * Show Log - method which show log
+	 */
+	public void showLog() {
+		System.out.println("-------------MAIN LOG----------------");
+		for (String l : log) {
+			System.out.println(l);
+		}
+		System.out.println("-------------LOG END-----------------");
+	}
+	
+	/**
+	 * Write To Log - method which save log
+	 */
+	public void writeToLog() {
+		char border = '|';
+		char userSeparator = ';';
+		char direct = (MOVE_UP == direction) ? '^' : 'v';
+		StringBuffer b = new StringBuffer();		
+		String lb = System.lineSeparator();
+		String liftPos = "______floor_" + currentPos + "______";
+		ArrayList<Floor> floors = getFloors();
+		int floorCount = floors.size();
+		
+		//start building log display
+		b.append(liftPos + lb);
+		
+		for (int i = floorCount - 1; i >= 1; i--) {
+			ArrayList<User> users = floors.get(i).getUsers();
+			String item = "";
+			String floorName = "f-" + i;
+			
+			b.append(floorName);
+			b.append(border);
+			b.append(direct);
+			b.append(border);
+			for (int j = 0; j <= users.size() - 1; j++) {
+				item += users.get(j).getTargetPosition() + "; ";
+				b.append(item);
+			}
+			b.append(lb);
+		}
+		//end of log building
+		
+		//add screenshot to main log file
+		log.add(b.toString());
+		//display log
+		System.out.println(b.toString());
+	}
 }
-
-
-
-
-
-
-
-
-
